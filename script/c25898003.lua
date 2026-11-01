@@ -52,7 +52,7 @@ function s.initial_effect(c)
 	e7:SetRange(LOCATION_FZONE)
 	e7:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
 	e7:SetTargetRange(1,0)
-	e7:SetValue(s.efilter2)
+	e7:SetTarget(s.setlimit)
 	c:RegisterEffect(e7)
 
 
@@ -126,6 +126,6 @@ end
 function s.efilter1(e,re,tp)
 	return re:GetHandler():IsType(TYPE_FIELD) and re:IsHasType(EFFECT_TYPE_ACTIVATE)
 end
-function s.efilter2(e,c,tp)
-	return c:IsType(TYPE_SPELL) and c:IsType(TYPE_FIELD)
+function s.setlimit(e,c)
+	return c:IsType(TYPE_FIELD)
 end
